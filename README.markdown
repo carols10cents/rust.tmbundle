@@ -2,12 +2,17 @@
 
 A TextMate Bundle for Rust.
 
-Currently has:
+##Current Features:
 
-- Syntax Highlighting
+- Basic Syntax Highlighting
 - Command to compile (using: rustc source.rs)
 - Command to compile with tests (using: rustc --test source.rs)
 - Code Snippets
+
+##Future Features:
+
+- Improved Syntax Highlighting
+- Command to run compiled Rust file
 
 ##Installation
 
