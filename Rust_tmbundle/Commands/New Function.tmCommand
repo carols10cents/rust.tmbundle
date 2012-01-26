@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>cat &lt;&lt;SNIPPET
+fn ${TM_SELECTED_TEXT:-$TM_CURRENT_WORD}(\${1:args}) {
+	\$0
+}
+SNIPPET</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>name</key>
+	<string>New Function</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>uuid</key>
+	<string>BFC654BE-E20E-4AAE-BCF9-638751DD3BBF</string>
+</dict>
+</plist>

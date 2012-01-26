@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>fn ${1:function_name} (${2:argument} : ${3:type}) -&gt; ${4:type} {
+	${0:// body...}
+}</string>
+	<key>name</key>
+	<string>fnr</string>
+	<key>scope</key>
+	<string>source.rs</string>
+	<key>tabTrigger</key>
+	<string>fnr</string>
+	<key>uuid</key>
+	<string>23E9CFF0-E905-48A1-AF7F-4DC5497E0352</string>
+</dict>
+</plist>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Rust Indent</string>
+	<key>settings</key>
+	<dict>
+		<key>decreaseIndentPattern</key>
+		<string>^(.*\*/)?\s*(\}|\))([^{]*\{)?([;,]?\s*|\.[^{]*|\s*\)[;\s]*)$</string>
+		<key>increaseIndentPattern</key>
+		<string>^.*(\{[^}"']*|\([^)"']*)$</string>
+	</dict>
+	<key>uuid</key>
+	<string>6FFD6B62-9C68-4732-859D-CFF8C7B57260</string>
+</dict>
+</plist>
