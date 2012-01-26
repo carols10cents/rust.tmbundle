@@ -3,6 +3,7 @@
 A TextMate Bundle for Rust.
 
 Currently has:
+
 - Syntax Highlighting
 - Command to compile (using: rustc source.rs)
 - Command to compile with tests (using: rustc --test source.rs)
