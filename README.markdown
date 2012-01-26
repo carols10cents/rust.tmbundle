@@ -1,6 +1,6 @@
 # Rust TextMate Bundle
 
-A TextMate Bundle for Rust.
+A TextMate Bundle for the Rust programming langauage.
 
 ##Current Features:
 
@@ -8,6 +8,7 @@ A TextMate Bundle for Rust.
 - Command to compile (using: rustc source.rs)
 - Command to compile with tests (using: rustc --test source.rs)
 - Code Snippets
+- Supports both .rs and .rc file formats (Rust and Rust Crates)
 
 ##Future Features:
 
