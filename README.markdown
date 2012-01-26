@@ -17,9 +17,10 @@ A TextMate Bundle for the Rust programming langauage.
 
 ##Installation
 
-- Download Rust_tmbundle folder
-- Rename to Rust.tmbundle
-- Double click (installs in TextMate)
+- Download either the zip or tar
+- Unzip
+- Rename SUB folder Rust_tmbundle to Rust.tmbundle
+- Double click above folder (installs in TextMate)
 - Enjoy
 
 
