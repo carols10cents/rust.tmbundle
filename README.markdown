@@ -5,15 +5,15 @@ A TextMate Bundle for the Rust programming langauage.
 ##Current Features:
 
 - Basic Syntax Highlighting
-- Command to compile (using: rustc source.rs)
-- Command to compile with tests (using: rustc --test source.rs)
+- Command to compile (using: rustc source.rs) (cmd+shift+c)
+- Command to compile with tests (using: rustc --test source.rs) (cmd+shift+a)
+- Run command. Runs compiled Rust file. If file hasn't been compiled it will compile it first. (cmd+r)
 - Code Snippets
 - Supports both .rs and .rc file formats (Rust and Rust Crates)
 
 ##Future Features:
 
 - Improved Syntax Highlighting
-- Command to run compiled Rust file
 
 ##Installation
 
