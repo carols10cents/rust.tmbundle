@@ -6,10 +6,11 @@
 	<string>saveActiveFile</string>
 	<key>command</key>
 	<string>
-/usr/local/bin/rustc $TM_FILEPATH
-</string>
+/usr/local/bin/rustc $TM_FILEPATH</string>
 	<key>input</key>
 	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>@C</string>
 	<key>name</key>
 	<string>Compile</string>
 	<key>output</key>

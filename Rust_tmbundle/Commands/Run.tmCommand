@@ -3,15 +3,42 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>nop</string>
+	<string>saveActiveFile</string>
 	<key>command</key>
-	<string>#TODO</string>
+	<string>#!/usr/bin/env ruby
+
+filepath = ENV["TM_FILEPATH"];
+
+file =  File.basename(filepath, ".rs");
+
+path = File.dirname(filepath);
+
+fullpath = path + "/" + file;
+
+result = '';
+
+if( !File.exist?( fullpath ) )
+	puts "Compiled Rust file doesn't exist, compiling… &lt;br /&gt;\n";
+	result = system("/usr/local/bin/rustc " + filepath);
+	puts "&lt;br /&gt;&lt;br /&gt;";
+	
+end
+
+if( File.exist?( fullpath ) )
+	system(fullpath);
+else
+	puts "&lt;br /&gt;Compiled Rust file doesn't exist";
+end</string>
 	<key>input</key>
-	<string>selection</string>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
 	<key>name</key>
 	<string>Run</string>
 	<key>output</key>
-	<string>replaceSelectedText</string>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.rs</string>
 	<key>uuid</key>
 	<string>C6D4863F-A61B-4284-A5D4-C72F8555CC40</string>
 </dict>
