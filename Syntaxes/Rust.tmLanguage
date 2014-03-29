@@ -13,6 +13,8 @@
 	<string>^.*\bfn\s*(\w+\s*)?\([^\)]*\)(\s*\{[^\}]*)?\s*$</string>
 	<key>foldingStopMarker</key>
 	<string>^\s*\}</string>
+	<key>keyEquivalent</key>
+	<string>^~R</string>
 	<key>name</key>
 	<string>Rust</string>
 	<key>patterns</key>
