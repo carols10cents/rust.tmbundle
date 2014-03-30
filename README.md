@@ -2,7 +2,24 @@
 
 A TextMate Bundle for the Rust programming langauage.
 
-##Current Features:
+
+## Installation
+
+```bash
+mkdir -p ~/Library/Application\ Support/Avian/Bundles
+cd ~/Library/Application\ Support/Avian/Bundles
+git clone git://github.com/elia/rust.tmbundle.git
+```
+
+### Update
+
+```bash
+cd ~/Library/Application\ Support/Avian/Bundles/avian-missing.tmbundle
+git pull git://github.com/elia/rust.tmbundle.git master
+```
+
+
+## Current Features:
 
 - Basic Syntax Highlighting
 - Command to compile (using: rustc source.rs) (cmd+shift+c)
@@ -11,11 +28,11 @@ A TextMate Bundle for the Rust programming langauage.
 - Code Snippets
 - Supports both .rs and .rc file formats (Rust and Rust Crates)
 
-##Future Features:
+## Future Features:
 
 - Improved Syntax Highlighting
 
-##Installation
+## Installation
 
 - Download either the zip or tar
 - Unzip
@@ -28,6 +45,7 @@ A TextMate Bundle for the Rust programming langauage.
 
 ## License
 
-This bundle is licensed under the MIT License (LICENSE.txt).
+This bundle is licensed under the MIT License (LICENSE).
 
 Copyright (c) 2012 [Tom Ellis](http://www.webmuse.co.uk/)
+Copyright (c) 2014 [Elia Schito](http://elia.schito.me/)
