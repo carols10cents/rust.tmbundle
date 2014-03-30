@@ -1,4 +1,4 @@
-# Rust TextMate Bundle
+# Rust TextMate2 Bundle
 
 A TextMate Bundle for the Rust programming langauage.
 
