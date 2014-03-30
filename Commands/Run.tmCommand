@@ -3,43 +3,41 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>saveActiveFile</string>
+	<string>saveModifiedFiles</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby
+	<string>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby
 
-filepath = ENV["TM_FILEPATH"];
+require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/executor"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
+require "shellwords"
 
-file =  File.basename(filepath, ".rs");
-
-path = File.dirname(filepath);
-
-fullpath = path + "/" + file;
-
-result = '';
-
-if( !File.exist?( fullpath ) )
-	puts "Compiled Rust file doesn't exist, compiling… &lt;br /&gt;\n";
-	result = system("/usr/local/bin/rustc " + filepath);
-	puts "&lt;br /&gt;&lt;br /&gt;";
-	
-end
-
-if( File.exist?( fullpath ) )
-	system(fullpath);
-else
-	puts "&lt;br /&gt;Compiled Rust file doesn't exist";
-end</string>
+TextMate.save_if_untitled('rs')
+TextMate::Executor.make_project_master_current_document
+args = Shellwords.split(ENV['TM_RUST'] || 'rustc') &lt;&lt; ENV['TM_FILEPATH']
+TextMate::Executor.run(args, :version_args =&gt; ["--version"], 
+                             :version_regex =&gt; /\Arustc ([^\n]*)\n.*/m)
+</string>
 	<key>input</key>
 	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>@r</string>
 	<key>name</key>
 	<string>Run</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
 	<key>scope</key>
 	<string>source.rs</string>
+	<key>semanticClass</key>
+	<string>process.run.rust</string>
 	<key>uuid</key>
 	<string>C6D4863F-A61B-4284-A5D4-C72F8555CC40</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
