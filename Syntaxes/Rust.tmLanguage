@@ -185,6 +185,12 @@
 			<string>constant.special.rs</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>&amp;'</string>
+			<key>name</key>
+			<string>constant.special.rs</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>'</string>
 			<key>beginCaptures</key>
