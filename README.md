@@ -6,16 +6,14 @@ A TextMate Bundle for the Rust programming langauage.
 ## Installation
 
 ```bash
-mkdir -p ~/Library/Application\ Support/Avian/Bundles
-cd ~/Library/Application\ Support/Avian/Bundles
-git clone git://github.com/elia/rust.tmbundle.git
+gem install tmbundle-manager --pre # sudo might be needed
+tmb install elia/rust
 ```
 
 ### Update
 
 ```bash
-cd ~/Library/Application\ Support/Avian/Bundles/avian-missing.tmbundle
-git pull git://github.com/elia/rust.tmbundle.git master
+tmb update rust
 ```
 
 
