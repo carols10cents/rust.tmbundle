@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>fn main() {
+    ${1:println!("hello?");}
+}</string>
+	<key>name</key>
+	<string>main</string>
+	<key>scope</key>
+	<string>source.rs</string>
+	<key>tabTrigger</key>
+	<string>main</string>
+	<key>uuid</key>
+	<string>3D3BF360-C3EF-40DE-BCF6-B13393157478</string>
+</dict>
+</plist>
