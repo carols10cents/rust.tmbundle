@@ -64,6 +64,10 @@
 			<string>#string_literal</string>
 		</dict>
 		<dict>
+			<key>include</key>
+			<string>#raw_string</string>
+		</dict>
+		<dict>
 			<key>comment</key>
 			<string>Floating point number (fraction)</string>
 			<key>match</key>
@@ -545,6 +549,17 @@
 					<string>#escaped_character</string>
 				</dict>
 			</array>
+		</dict>
+		<key>raw_string</key>
+		<dict>
+			<key>begin</key>
+			<string>r#"</string>
+			<key>comment</key>
+			<string>Raw string</string>
+			<key>end</key>
+			<string>"#</string>
+			<key>name</key>
+			<string>string.unquoted.rust</string>
 		</dict>
 		<key>type_params</key>
 		<dict>
