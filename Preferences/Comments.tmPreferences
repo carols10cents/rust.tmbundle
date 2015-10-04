@@ -37,6 +37,41 @@
 */</string>
 			</dict>
 		</array>
+		<key>smartTypingPairs</key>
+		<array>
+			<array>
+				<string>"</string>
+				<string>"</string>
+			</array>
+			<array>
+				<string>(</string>
+				<string>)</string>
+			</array>
+			<array>
+				<string>{</string>
+				<string>}</string>
+			</array>
+			<array>
+				<string>[</string>
+				<string>]</string>
+			</array>
+			<array>
+				<string>“</string>
+				<string>”</string>
+			</array>
+			<array>
+				<string>‘</string>
+				<string>’</string>
+			</array>
+			<array>
+				<string>&lt;</string>
+				<string>&gt;</string>
+			</array>
+			<array>
+				<string>`</string>
+				<string>`</string>
+			</array>
+		</array>
 	</dict>
 	<key>uuid</key>
 	<string>C4C70D88-6B26-45A3-828B-13FDB8F24D2E</string>

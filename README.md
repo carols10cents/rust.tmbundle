@@ -47,3 +47,4 @@ This bundle is licensed under the MIT License (LICENSE).
 
 Copyright (c) 2012 [Tom Ellis](http://www.webmuse.co.uk/)
 Copyright (c) 2014 [Elia Schito](http://elia.schito.me/)
+Copyright (c) 2015 [Carol (Nichols || Goulding)](http://carol-nichols.com)

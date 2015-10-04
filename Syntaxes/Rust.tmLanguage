@@ -64,6 +64,10 @@
 			<string>#string_literal</string>
 		</dict>
 		<dict>
+			<key>include</key>
+			<string>#raw_string</string>
+		</dict>
+		<dict>
 			<key>comment</key>
 			<string>Floating point number (fraction)</string>
 			<key>match</key>
@@ -546,6 +550,17 @@
 				</dict>
 			</array>
 		</dict>
+		<key>raw_string</key>
+		<dict>
+			<key>begin</key>
+			<string>r#"</string>
+			<key>comment</key>
+			<string>Raw string</string>
+			<key>end</key>
+			<string>"#</string>
+			<key>name</key>
+			<string>string.unquoted.rust</string>
+		</dict>
 		<key>type_params</key>
 		<dict>
 			<key>begin</key>
@@ -601,7 +616,7 @@
 			<key>comment</key>
 			<string>Built-in type</string>
 			<key>match</key>
-			<string>\b(bool|char|uint|int|u8|u16|u32|u64|i8|i16|i32|i64|f32|f64|str|Self)\b</string>
+			<string>\b(bool|char|usize|isize|u8|u16|u32|u64|i8|i16|i32|i64|f32|f64|str|Self)\b</string>
 			<key>name</key>
 			<string>storage.type.rust</string>
 		</dict>
