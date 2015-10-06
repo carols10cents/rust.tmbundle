@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Rust Indent</string>
+	<string>Indent</string>
 	<key>scope</key>
 	<string>source.rust</string>
 	<key>settings</key>
