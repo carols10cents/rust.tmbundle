@@ -33,7 +33,7 @@ TextMate::Executor.run(args, :version_args =&gt; ["--version"],
 	<key>outputLocation</key>
 	<string>newWindow</string>
 	<key>scope</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>semanticClass</key>
 	<string>process.run.rust</string>
 	<key>uuid</key>

@@ -26,7 +26,7 @@ cd "${TM_PROJECT_DIRECTORY:-$TM_DIRECTORY}"
 	<key>outputLocation</key>
 	<string>newWindow</string>
 	<key>scope</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>uuid</key>
 	<string>A7DF7817-C437-464D-9A12-BA23CB4AE9B9</string>
 	<key>version</key>

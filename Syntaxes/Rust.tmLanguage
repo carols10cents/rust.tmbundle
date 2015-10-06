@@ -485,6 +485,17 @@
 			<key>name</key>
 			<string>storage.modifier.mut.rust</string>
 		</dict>
+		<key>raw_string</key>
+		<dict>
+			<key>begin</key>
+			<string>r#"</string>
+			<key>comment</key>
+			<string>Raw string</string>
+			<key>end</key>
+			<string>"#</string>
+			<key>name</key>
+			<string>string.unquoted.rust</string>
+		</dict>
 		<key>ref_lifetime</key>
 		<dict>
 			<key>captures</key>
@@ -550,17 +561,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>raw_string</key>
-		<dict>
-			<key>begin</key>
-			<string>r#"</string>
-			<key>comment</key>
-			<string>Raw string</string>
-			<key>end</key>
-			<string>"#</string>
-			<key>name</key>
-			<string>string.unquoted.rust</string>
-		</dict>
 		<key>type_params</key>
 		<dict>
 			<key>begin</key>
@@ -622,7 +622,7 @@
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>uuid</key>
 	<string>E54FA931-0668-4496-8922-F91520AD02B3</string>
 </dict>

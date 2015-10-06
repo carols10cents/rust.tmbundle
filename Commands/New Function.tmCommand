@@ -26,7 +26,7 @@ SNIPPET</string>
 	<key>outputLocation</key>
 	<string>replaceInput</string>
 	<key>scope</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>uuid</key>
 	<string>BFC654BE-E20E-4AAE-BCF9-638751DD3BBF</string>
 	<key>version</key>

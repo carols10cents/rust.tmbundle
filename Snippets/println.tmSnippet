@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>println</string>
 	<key>scope</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>tabTrigger</key>
 	<string>pl</string>
 	<key>uuid</key>

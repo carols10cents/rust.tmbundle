@@ -27,15 +27,23 @@ APPLESCRIPT
 </string>
 	<key>input</key>
 	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>@B</string>
 	<key>name</key>
 	<string>Cargo Build</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
 	<key>outputLocation</key>
 	<string>discard</string>
 	<key>scope</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>uuid</key>
 	<string>D5624A49-9460-43C7-9D05-39580911371C</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

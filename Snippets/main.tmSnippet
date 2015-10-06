@@ -9,7 +9,7 @@
 	<key>name</key>
 	<string>main</string>
 	<key>scope</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>tabTrigger</key>
 	<string>main</string>
 	<key>uuid</key>

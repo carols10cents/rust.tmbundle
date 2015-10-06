@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>If</string>
 	<key>scope</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>tabTrigger</key>
 	<string>if</string>
 	<key>uuid</key>
