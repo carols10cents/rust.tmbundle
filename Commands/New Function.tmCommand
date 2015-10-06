@@ -6,7 +6,6 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/bin/bash
-[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
 cat &lt;&lt;SNIPPET
 fn ${TM_SELECTED_TEXT:-$TM_CURRENT_WORD}(\${1:args}) {

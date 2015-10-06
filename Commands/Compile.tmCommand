@@ -6,7 +6,6 @@
 	<string>saveActiveFile</string>
 	<key>command</key>
 	<string>#!/bin/bash
-[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
 cd "${TM_PROJECT_DIRECTORY:-$TM_DIRECTORY}"
 "$TM_RUST" "$TM_FILEPATH"
