@@ -4,6 +4,8 @@
 <dict>
 	<key>name</key>
 	<string>Rust Indent</string>
+	<key>scope</key>
+	<string>source.rs</string>
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
