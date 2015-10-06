@@ -84,7 +84,7 @@
 			<key>comment</key>
 			<string>Single-quote string (character literal)</string>
 			<key>match</key>
-			<string>(')([^'\\]|\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.))(')</string>
+			<string>(')([^'\\]|\\(x\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.))(')</string>
 			<key>name</key>
 			<string>string.quoted.single.rust</string>
 		</dict>
@@ -489,7 +489,7 @@
 		<key>escaped_character</key>
 		<dict>
 			<key>match</key>
-			<string>\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)</string>
+			<string>\\(x\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)</string>
 			<key>name</key>
 			<string>constant.character.escape.rust</string>
 		</dict>
