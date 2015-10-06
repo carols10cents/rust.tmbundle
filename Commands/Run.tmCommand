@@ -14,7 +14,7 @@ require "shellwords"
 TextMate.save_if_untitled('rs')
 TextMate::Executor.make_project_master_current_document
 TextMate::Process.run(["cd", ENV['TM_PROJECT_DIRECTORY'] || ENV['TM_DIRECTORY']])
-args = Shellwords.split(ENV['TM_RUST'] || '/usr/local/bin/rustc') &lt;&lt; ENV['TM_FILEPATH']
+args = Shellwords.split(ENV['TM_RUST']) &lt;&lt; ENV['TM_FILEPATH']
 TextMate::Executor.run(args, :version_args =&gt; ["--version"],
                              :version_regex =&gt; /\Arustc ([^\n]*)\n.*/m)
 </string>
@@ -32,6 +32,20 @@ TextMate::Executor.run(args, :version_args =&gt; ["--version"],
 	<string>html</string>
 	<key>outputLocation</key>
 	<string>newWindow</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>rustc</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/local/bin/rustc</string>
+				<string>/opt/local/bin/rustc</string>
+			</array>
+			<key>variable</key>
+			<string>TM_RUST</string>
+		</dict>
+	</array>
 	<key>scope</key>
 	<string>source.rust</string>
 	<key>semanticClass</key>
