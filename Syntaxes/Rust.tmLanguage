@@ -587,7 +587,7 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.unquoted.rust</string>
+			<string>string.quoted.other.raw.rust</string>
 		</dict>
 		<key>ref_lifetime</key>
 		<dict>
