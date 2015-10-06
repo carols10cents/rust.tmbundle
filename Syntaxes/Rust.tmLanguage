@@ -6,10 +6,6 @@
 	<array>
 		<string>rs</string>
 	</array>
-	<key>foldingStartMarker</key>
-	<string>^.*\bfn\s*(\w+\s*)?\([^\)]*\)(\s*\{[^\}]*)?\s*$</string>
-	<key>foldingStopMarker</key>
-	<string>^\s*\}</string>
 	<key>keyEquivalent</key>
 	<string>^~R</string>
 	<key>name</key>
