@@ -463,7 +463,7 @@
 			<key>comment</key>
 			<string>Single-line comment</string>
 			<key>match</key>
-			<string>//.*$</string>
+			<string>//.*$\n?</string>
 			<key>name</key>
 			<string>comment.line.double-slash.rust</string>
 		</dict>
@@ -472,7 +472,7 @@
 			<key>comment</key>
 			<string>Single-line documentation comment</string>
 			<key>match</key>
-			<string>//[!/][^/].*$</string>
+			<string>//[!/][^/].*$\n?</string>
 			<key>name</key>
 			<string>comment.line.documentation.rust</string>
 		</dict>
