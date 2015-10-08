@@ -11,7 +11,7 @@ Without any extra dependencies:
 * Rename the subdirectory rust_tmbundle to rust.tmbundle
 * Double click on rust.tmbundle to install in TextMate
 
-If you'd like, and assuming you don't mind using Ruby, you can use the ruby gem 
+If you'd like, and assuming you don't mind using Ruby, you can use the ruby gem
 `tmbundle-manager` to makes managing and updating yourtextmate bundles easier:
 
 ### Initial installation
@@ -30,16 +30,48 @@ tmb update rust
 ## Current Features:
 
 - Basic Syntax Highlighting
-- Command to compile (using: rustc source.rs) (cmd+shift+c)
-- Command to compile with tests (using: rustc --test source.rs) (cmd+shift+a)
-- Run command. Runs compiled Rust file. If file hasn't been compiled it will compile it first. (cmd+r)
 - Code Snippets
+- Commands:
+
+<table>
+  <tr>
+    <th>In order to:</th>
+    <th>Shortcut:</th>
+  </tr>
+  <tr>
+    <td>Compile current file</td>
+    <td>cmd + shift + c</td>
+  </tr>
+  <tr>
+    <td>Compile current file with tests</td>
+    <td>cmd + shift + a</td>
+  </tr>
+  <tr>
+    <td>Compile and run current file</td>
+    <td>cmd + r</td>
+  </tr>
+  <tr>
+    <td>Compile with tests and run the tests</td>
+    <td>cmd + option + shift + r</td>
+  </tr>
+  <tr>
+    <td>Cargo build current project</td>
+    <td>cmd + shift + b</td>
+  </tr>
+  <tr>
+    <td>Cargo run current project</td>
+    <td>cmd + shift + r</td>
+  </tr>
+  <tr>
+    <td>Cargo test current project</td>
+    <td>option + shift + r</td>
+  </tr>
+</table>
 
 ## Future Features:
 
 - Improved Syntax Highlighting
 - Block folding of functions
-- `cargo` integration
 - File an issue if you have more ideas!
 
 ## License
