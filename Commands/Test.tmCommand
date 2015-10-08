@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18 -wKU
+
+require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/executor"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
+require "shellwords"
+
+TextMate.save_if_untitled('rs')
+TextMate::Executor.make_project_master_current_document
+args = Shellwords.split(ENV['TM_RUST'] || '/usr/local/bin/rustc') 
+args &lt;&lt; '--test'
+args &lt;&lt; ENV['TM_FILEPATH']
+TextMate::Process.run(["cd", ENV['TM_PROJECT_DIRECTORY'] || ENV['TM_DIRECTORY']])
+TextMate::Executor.run(args, :version_args =&gt; ["--version"],
+                             :version_regex =&gt; /\Arustc ([^\n]*)\n.*/m)
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~@R</string>
+	<key>name</key>
+	<string>Test</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>source.rs</string>
+	<key>uuid</key>
+	<string>299EB188-E7AE-4C55-BBCE-17EA4337F3FA</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
