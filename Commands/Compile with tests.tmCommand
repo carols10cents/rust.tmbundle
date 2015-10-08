@@ -5,20 +5,31 @@
 	<key>beforeRunningCommand</key>
 	<string>saveActiveFile</string>
 	<key>command</key>
-	<string>
+	<string>#!/bin/bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+cd "${TM_PROJECT_DIRECTORY:-$TM_DIRECTORY}"
 /usr/local/bin/rustc --test $TM_FILEPATH
 </string>
 	<key>input</key>
 	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>@A</string>
 	<key>name</key>
 	<string>Compile with tests</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
 	<key>scope</key>
 	<string>source.rs</string>
 	<key>uuid</key>
 	<string>AE3EDDD9-4C26-4107-AFB3-23E80044C531</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

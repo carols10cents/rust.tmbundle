@@ -19,33 +19,33 @@ osascript &lt;&lt;- APPLESCRIPT
 	tell app "Terminal"
 	    launch
 	    activate
-	    do script "clear; cd $(esc "${TM_DIRECTORY}")\ncargo run"
+	    do script "clear; cd $(esc "${TM_PROJECT_DIRECTORY:-$TM_DIRECTORY}")\ncargo run"
 	    set position of first window to { 100, 100 }
 	end tell
 APPLESCRIPT
 
 </string>
-        <key>input</key>
-        <string>document</string>
-        <key>inputFormat</key>
-        <string>text</string>
-        <key>keyEquivalent</key>
-        <string>@R</string>
-        <key>name</key>
-        <string>Cargo</string>
-        <key>outputCaret</key>
-        <string>afterOutput</string>
-        <key>outputFormat</key>
-        <string>html</string>
-        <key>outputLocation</key>
-        <string>discard</string>
-        <key>scope</key>
-        <string>source.rs</string>
-        <key>semanticClass</key>
-        <string>process.external.run.rust</string>
-        <key>uuid</key>
-        <string>22D8F169-BE9C-4E06-B704-83F388340324</string>
-        <key>version</key>
-        <integer>2</integer>
-    </dict>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@R</string>
+	<key>name</key>
+	<string>Cargo Run</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>source.rs</string>
+	<key>semanticClass</key>
+	<string>process.external.run.rust</string>
+	<key>uuid</key>
+	<string>22D8F169-BE9C-4E06-B704-83F388340324</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
 </plist>
