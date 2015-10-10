@@ -3,8 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>use std;
-</string>
+	<string>use std;</string>
 	<key>name</key>
 	<string>use std</string>
 	<key>scope</key>
