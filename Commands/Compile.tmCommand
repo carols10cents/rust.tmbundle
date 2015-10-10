@@ -6,10 +6,9 @@
 	<string>saveActiveFile</string>
 	<key>command</key>
 	<string>#!/bin/bash
-[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
 cd "${TM_PROJECT_DIRECTORY:-$TM_DIRECTORY}"
-/usr/local/bin/rustc $TM_FILEPATH
+"$TM_RUST" "$TM_FILEPATH"
 </string>
 	<key>input</key>
 	<string>document</string>
@@ -25,8 +24,22 @@ cd "${TM_PROJECT_DIRECTORY:-$TM_DIRECTORY}"
 	<string>html</string>
 	<key>outputLocation</key>
 	<string>newWindow</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>rustc</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/local/bin/rustc</string>
+				<string>/opt/local/bin/rustc</string>
+			</array>
+			<key>variable</key>
+			<string>TM_RUST</string>
+		</dict>
+	</array>
 	<key>scope</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>uuid</key>
 	<string>A7DF7817-C437-464D-9A12-BA23CB4AE9B9</string>
 	<key>version</key>

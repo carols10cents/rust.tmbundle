@@ -40,7 +40,7 @@ APPLESCRIPT
 	<key>outputLocation</key>
 	<string>discard</string>
 	<key>scope</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>uuid</key>
 	<string>CB93B58D-AAD0-453B-BF18-727E1D588A96</string>
 	<key>version</key>

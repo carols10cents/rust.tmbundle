@@ -4,12 +4,12 @@
 <dict>
 	<key>content</key>
 	<string>mod ${1:name} {
-  $2
+	$2
 }</string>
 	<key>name</key>
 	<string>mod</string>
 	<key>scope</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>tabTrigger</key>
 	<string>mod</string>
 	<key>uuid</key>

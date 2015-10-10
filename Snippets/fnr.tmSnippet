@@ -9,7 +9,7 @@
 	<key>name</key>
 	<string>fnr</string>
 	<key>scope</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>tabTrigger</key>
 	<string>fnr</string>
 	<key>uuid</key>

@@ -2,24 +2,38 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>contactName</key>
+	<string>Carol (Nichols || Goulding)</string>
+	<key>description</key>
+	<string>A general-purpose, multi-paradigm, compiled programming language developed by Mozilla Research.</string>
+	<key>mainMenu</key>
+	<dict>
+		<key>items</key>
+		<array>
+			<string>C6D4863F-A61B-4284-A5D4-C72F8555CC40</string>
+			<string>A7DF7817-C437-464D-9A12-BA23CB4AE9B9</string>
+			<string>AE3EDDD9-4C26-4107-AFB3-23E80044C531</string>
+			<string>299EB188-E7AE-4C55-BBCE-17EA4337F3FA</string>
+			<string>------------------------------------</string>
+			<string>22D8F169-BE9C-4E06-B704-83F388340324</string>
+			<string>D5624A49-9460-43C7-9D05-39580911371C</string>
+			<string>CB93B58D-AAD0-453B-BF18-727E1D588A96</string>
+			<string>------------------------------------</string>
+			<string>BFC654BE-E20E-4AAE-BCF9-638751DD3BBF</string>
+			<string>------------------------------------</string>
+			<string>5D83E339-418A-42FB-A6A4-37B8FAA3690E</string>
+			<string>23E9CFF0-E905-48A1-AF7F-4DC5497E0352</string>
+			<string>FF96E55B-A5AC-4F3F-989B-976573ADB670</string>
+			<string>CC6478D8-70FE-42DD-9A03-588D9A9AF552</string>
+			<string>3D3BF360-C3EF-40DE-BCF6-B13393157478</string>
+			<string>CBDE987D-1D3E-491C-8732-3EF203B7079F</string>
+			<string>E97E2D2A-AF7E-4E32-AEE7-034A13BFE7C2</string>
+			<string>8CA955F6-1FBB-44E0-99D7-4E34BA2A736E</string>
+			<string>4B7CF745-DD86-4FDB-8787-3C20B5FB1414</string>
+		</array>
+	</dict>
 	<key>name</key>
 	<string>Rust</string>
-	<key>ordering</key>
-	<array>
-		<string>A7DF7817-C437-464D-9A12-BA23CB4AE9B9</string>
-		<string>AE3EDDD9-4C26-4107-AFB3-23E80044C531</string>
-		<string>C6D4863F-A61B-4284-A5D4-C72F8555CC40</string>
-		<string>E54FA931-0668-4496-8922-F91520AD02B3</string>
-		<string>6FFD6B62-9C68-4732-859D-CFF8C7B57260</string>
-		<string>C4C70D88-6B26-45A3-828B-13FDB8F24D2E</string>
-		<string>BFC654BE-E20E-4AAE-BCF9-638751DD3BBF</string>
-		<string>FF96E55B-A5AC-4F3F-989B-976573ADB670</string>
-		<string>CC6478D8-70FE-42DD-9A03-588D9A9AF552</string>
-		<string>5D83E339-418A-42FB-A6A4-37B8FAA3690E</string>
-		<string>23E9CFF0-E905-48A1-AF7F-4DC5497E0352</string>
-		<string>4B7CF745-DD86-4FDB-8787-3C20B5FB1414</string>
-		<string>E97E2D2A-AF7E-4E32-AEE7-034A13BFE7C2</string>
-	</array>
 	<key>uuid</key>
 	<string>06794A1F-20AC-457C-AD92-A4A8EF83EB0E</string>
 </dict>

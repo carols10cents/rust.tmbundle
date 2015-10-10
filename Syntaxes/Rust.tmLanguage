@@ -2,16 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>comment</key>
-	<string>Rust Syntax: version 0.11</string>
 	<key>fileTypes</key>
 	<array>
 		<string>rs</string>
 	</array>
-	<key>foldingStartMarker</key>
-	<string>^.*\bfn\s*(\w+\s*)?\([^\)]*\)(\s*\{[^\}]*)?\s*$</string>
-	<key>foldingStopMarker</key>
-	<string>^\s*\}</string>
 	<key>keyEquivalent</key>
 	<string>^~R</string>
 	<key>name</key>
@@ -37,10 +31,26 @@
 		<dict>
 			<key>begin</key>
 			<string>#\!?\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.attribute.begin.rust</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>Attribute</string>
 			<key>end</key>
 			<string>\]</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.attribute.end.rust</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>meta.attribute.rust</string>
 			<key>patterns</key>
@@ -52,10 +62,28 @@
 			</array>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.rust</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>constant.character.escape.rust</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.rust</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>Single-quote string (character literal)</string>
 			<key>match</key>
-			<string>'([^'\\]|\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.))'</string>
+			<string>(')([^'\\]|(\\(x\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)))(')</string>
 			<key>name</key>
 			<string>string.quoted.single.rust</string>
 		</dict>
@@ -376,10 +404,26 @@
 		<dict>
 			<key>begin</key>
 			<string>/\*</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.begin.rust</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>Block comment</string>
 			<key>end</key>
 			<string>\*/</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.end.rust</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>comment.block.rust</string>
 			<key>patterns</key>
@@ -398,10 +442,26 @@
 		<dict>
 			<key>begin</key>
 			<string>/\*[!\*][^\*]</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.begin.rust</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>Block documentation comment</string>
 			<key>end</key>
 			<string>\*/</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.end.rust</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>comment.block.documentation.rust</string>
 			<key>patterns</key>
@@ -428,7 +488,7 @@
 		<key>escaped_character</key>
 		<dict>
 			<key>match</key>
-			<string>\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)</string>
+			<string>\\(x\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)</string>
 			<key>name</key>
 			<string>constant.character.escape.rust</string>
 		</dict>
@@ -460,19 +520,35 @@
 		</dict>
 		<key>line_comment</key>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.rust</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>Single-line comment</string>
 			<key>match</key>
-			<string>//.*$</string>
+			<string>(//).*$\n?</string>
 			<key>name</key>
 			<string>comment.line.double-slash.rust</string>
 		</dict>
 		<key>line_doc_comment</key>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.rust</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>Single-line documentation comment</string>
 			<key>match</key>
-			<string>//[!/][^/].*$</string>
+			<string>(//)[!/][^/].*$\n?</string>
 			<key>name</key>
 			<string>comment.line.documentation.rust</string>
 		</dict>
@@ -484,6 +560,33 @@
 			<string>\bmut\b</string>
 			<key>name</key>
 			<string>storage.modifier.mut.rust</string>
+		</dict>
+		<key>raw_string</key>
+		<dict>
+			<key>begin</key>
+			<string>r#"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.rust</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Raw string</string>
+			<key>end</key>
+			<string>"#</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.rust</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.raw.rust</string>
 		</dict>
 		<key>ref_lifetime</key>
 		<dict>
@@ -536,10 +639,26 @@
 		<dict>
 			<key>begin</key>
 			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.rust</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>Double-quote string</string>
 			<key>end</key>
 			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.rust</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>string.quoted.double.rust</string>
 			<key>patterns</key>
@@ -550,25 +669,30 @@
 				</dict>
 			</array>
 		</dict>
-		<key>raw_string</key>
-		<dict>
-			<key>begin</key>
-			<string>r#"</string>
-			<key>comment</key>
-			<string>Raw string</string>
-			<key>end</key>
-			<string>"#</string>
-			<key>name</key>
-			<string>string.unquoted.rust</string>
-		</dict>
 		<key>type_params</key>
 		<dict>
 			<key>begin</key>
 			<string>&lt;</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.type_params.begin.rust</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>Type parameters</string>
 			<key>end</key>
 			<string>&gt;</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.type_params.end.rust</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>meta.type_params.rust</string>
 			<key>patterns</key>
@@ -622,7 +746,7 @@
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>source.rs</string>
+	<string>source.rust</string>
 	<key>uuid</key>
 	<string>E54FA931-0668-4496-8922-F91520AD02B3</string>
 </dict>
