@@ -8,16 +8,16 @@
 	<string>#!/bin/bash
 
 cd "${TM_PROJECT_DIRECTORY:-$TM_DIRECTORY}"
-"$TM_RUST" "$TM_FILEPATH"
+"$TM_RUST" --test "$TM_FILEPATH"
 </string>
 	<key>input</key>
 	<string>document</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>@C</string>
+	<string>@A</string>
 	<key>name</key>
-	<string>Compile</string>
+	<string>Build With Tests</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
@@ -41,7 +41,7 @@ cd "${TM_PROJECT_DIRECTORY:-$TM_DIRECTORY}"
 	<key>scope</key>
 	<string>source.rust</string>
 	<key>uuid</key>
-	<string>A7DF7817-C437-464D-9A12-BA23CB4AE9B9</string>
+	<string>AE3EDDD9-4C26-4107-AFB3-23E80044C531</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>
