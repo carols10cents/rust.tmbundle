@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>fn ${1:function_name} (${2:argument} : ${3:type}) -&gt; ${4:type} {
+	<string>fn ${1:function_name}(${2:argument}: ${3:type}) -&gt; ${4:type} {
 	${0:// body...}
 }</string>
 	<key>name</key>
