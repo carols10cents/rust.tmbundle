@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>saveModifiedFiles</string>
+	<string>saveActiveFile</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby18 -wKU
 
