@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>std::io::println( ${1:message} );</string>
+	<string>println!(${1:message});</string>
 	<key>name</key>
-	<string>println</string>
+	<string>println!</string>
 	<key>scope</key>
 	<string>source.rust</string>
 	<key>tabTrigger</key>
