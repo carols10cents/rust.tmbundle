@@ -33,7 +33,8 @@ def make_completion_hash(line)
   match = comp[0].split(" ").last
   image = comp[4]
   display = comp[5]
-  return { 'match' =&gt; match, 'display' =&gt;  display, 'insert' =&gt; '' }
+  out = "%s\t%s" % [match.ljust(40), display]
+  return { 'match' =&gt; match, 'display' =&gt; out, 'insert' =&gt; '', 'image' =&gt; '' }
 end
 
 hashes = output.split("\n").select{ |line| line.start_with? "MATCH" }.collect{ |line| make_completion_hash(line) }
