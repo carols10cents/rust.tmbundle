@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18
+require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb'
+require ENV['TM_SUPPORT_PATH'] + "/lib/escape.rb"
+require ENV['TM_SUPPORT_PATH'] + "/lib/tm/require_cmd.rb"
+require ENV['TM_SUPPORT_PATH'] + "/lib/tm/htmloutput.rb"
+require ENV['TM_SUPPORT_PATH'] + "/lib/web_preview"
+
+# current document
+document = []
+File.open(ENV['TM_FILEPATH'], "r+") do |file|
+  document = file.readlines
+end
+
+# byte offset of cursor position from the beginning of file
+cursor = document[ 0, ENV['TM_LINE_NUMBER'].to_i - 1].join().length + ENV['TM_LINE_INDEX'].to_i
+line = document[ENV['TM_LINE_NUMBER'].to_i - 1]
+word = line.split(' ').last
+output = `"$TM_RACER" complete #{word}`
+
+def make_completion_hash(line)
+  comp = line.split(",")
+  match = comp[0].split(" ").last
+  image = comp[4]
+  display = comp[5]
+  return { 'match' =&gt; match, 'display' =&gt;  display, 'insert' =&gt; '' }
+end
+
+hashes = output.split("\n").collect{ |line| make_completion_hash(line) }
+options = { :extra_chars =&gt; "_", :case_insensitive =&gt; false }
+
+# quit if no completions found
+TextMate.exit_show_tool_tip("No completions found.") if hashes.length == 0
+
+if hashes.length == 1
+  word = ENV['TM_CURRENT_WORD'] || ""
+  snippet = hashes[0]["match"].gsub(/^#{Regexp.escape(word)}/, "") + hashes[0]["insert"]
+  TextMate.exit_insert_snippet( snippet )
+else
+  TextMate::UI.complete( hashes , options )
+end
+
+</string>
+	<key>fallbackInput</key>
+	<string>word</string>
+	<key>hideFromUser</key>
+	<string>true</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~</string>
+	<key>name</key>
+	<string>Complete</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>atCaret</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>racer</string>
+			<key>moreInfoURL</key>
+			<string>https://github.com/phildawes/racer</string>
+			<key>variable</key>
+			<string>TM_RACER</string>
+		</dict>
+	</array>
+	<key>scope</key>
+	<string>source.rust</string>
+	<key>uuid</key>
+	<string>FE908865-7729-4926-9FAC-2D54895BEA48</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
