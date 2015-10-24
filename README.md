@@ -68,6 +68,20 @@ tmb update rust
   </tr>
 </table>
 
+- Autocompletion when racer is available (see instructions below)
+
+## How to enable autocompletion via racer
+
+- Install racer by following [the instructions in racer's README](https://github.com/phildawes/racer)
+- The textmate bundle will look in the following locations first for a `racer` binary, so either move or symlink `[racer checkout directory]/target/release/racer` into one of these locations:
+  - `/usr/local/bin`
+  - `/opt/local/bin`
+  - `$CARGO_INSTALL_ROOT/bin` (if you have set `CARGO_INSTALL_ROOT` in TextMate)
+  - `$CARGO_HOME/bin`  (if you have set `CARGO_HOME` in TextMate)
+  - `$HOME/.cargo/bin`
+- If you want your `racer` binary to be somewhere other than the locations in the last step, set the `TM_RACER` variable in your TextMate preferences to the location of your `racer` binary.
+- Set the `RUST_SRC_PATH` variable in your TextMate preferences to the location of your Rust source directory (the same location that you set this variable to as part of the racer installation instructions).
+
 ## Future Features:
 
 - Improved Syntax Highlighting
