@@ -15,7 +15,7 @@ cd "${TM_PROJECT_DIRECTORY:-$TM_DIRECTORY}"
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>@A</string>
+	<string>@B</string>
 	<key>name</key>
 	<string>Build With Tests</string>
 	<key>outputCaret</key>

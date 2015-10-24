@@ -31,7 +31,7 @@ tmb update rust
 
 - Basic Syntax Highlighting
 - Code Snippets
-- Commands:
+- Commands **(Note the cargo commands will only work in TextMate Nightly until https://github.com/textmate/textmate/pull/1305 is released)**:
 
 <table>
   <tr>
@@ -39,32 +39,37 @@ tmb update rust
     <th>Shortcut:</th>
   </tr>
   <tr>
-    <td>Compile current file</td>
-    <td>cmd + shift + c</td>
+    <td>Build current file</td>
+    <td>cmd + b</td>
   </tr>
   <tr>
-    <td>Compile current file with tests</td>
-    <td>cmd + shift + a</td>
-  </tr>
-  <tr>
-    <td>Compile and run current file</td>
-    <td>cmd + r</td>
-  </tr>
-  <tr>
-    <td>Compile with tests and run the tests</td>
-    <td>cmd + option + shift + r</td>
-  </tr>
-  <tr>
-    <td>Cargo build current project</td>
+    <td>Build current file with tests</td>
     <td>cmd + shift + b</td>
   </tr>
   <tr>
-    <td>Cargo run current project</td>
+    <td>Run current file</td>
+    <td>cmd + r</td>
+  </tr>
+  <tr>
+    <td>Run current file with tests</td>
     <td>cmd + shift + r</td>
   </tr>
   <tr>
+    <th colspan="2">
+      When a `Cargo.toml` is present in the root:
+    </th>
+  </tr>
+  <tr>
+    <td>Cargo build current project</td>
+    <td>cmd + b</td>
+  </tr>
+  <tr>
+    <td>Cargo run current project</td>
+    <td>cmd + r</td>
+  </tr>
+  <tr>
     <td>Cargo test current project</td>
-    <td>option + shift + r</td>
+    <td>cmd + shift + r</td>
   </tr>
 </table>
 

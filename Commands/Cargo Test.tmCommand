@@ -30,7 +30,7 @@ APPLESCRIPT
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>~R</string>
+	<string>@R</string>
 	<key>name</key>
 	<string>Cargo Test</string>
 	<key>outputCaret</key>
@@ -40,7 +40,7 @@ APPLESCRIPT
 	<key>outputLocation</key>
 	<string>discard</string>
 	<key>scope</key>
-	<string>source.rust</string>
+	<string>attr.project.cargo</string>
 	<key>uuid</key>
 	<string>CB93B58D-AAD0-453B-BF18-727E1D588A96</string>
 	<key>version</key>

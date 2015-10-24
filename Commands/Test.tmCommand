@@ -25,7 +25,7 @@ TextMate::Executor.run(args, :version_args =&gt; ["--version"],
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>~@R</string>
+	<string>@R</string>
 	<key>name</key>
 	<string>Test</string>
 	<key>outputCaret</key>
