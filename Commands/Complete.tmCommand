@@ -69,6 +69,14 @@ end
 		<dict>
 			<key>command</key>
 			<string>racer</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/local/bin/racer</string>
+				<string>/opt/local/bin/racer</string>
+				<string>$CARGO_INSTALL_ROOT/bin/racer</string>
+				<string>$CARGO_HOME/bin/racer</string>
+				<string>$HOME/.cargo/bin/racer</string>
+			</array>
 			<key>moreInfoURL</key>
 			<string>https://github.com/phildawes/racer</string>
 			<key>variable</key>
