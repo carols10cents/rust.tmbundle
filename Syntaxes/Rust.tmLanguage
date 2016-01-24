@@ -29,6 +29,18 @@
 			<string>#line_comment</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>(\{)</string>
+			<key>name</key>
+			<string>punctuation.section.scope.begin.rust</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(\})</string>
+			<key>name</key>
+			<string>punctuation.section.scope.end.rust</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>#\!?\[</string>
 			<key>beginCaptures</key>
@@ -306,7 +318,7 @@
 			<key>comment</key>
 			<string>Function definition</string>
 			<key>end</key>
-			<string>[\{;]</string>
+			<string>(?[\{;])</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -338,7 +350,7 @@
 			<key>comment</key>
 			<string>Type declaration</string>
 			<key>end</key>
-			<string>[\{;]</string>
+			<string>(?[\{;])</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -365,7 +377,7 @@
 			<key>comment</key>
 			<string>Implementation</string>
 			<key>end</key>
-			<string>\{</string>
+			<string>(?\{)</string>
 			<key>patterns</key>
 			<array>
 				<dict>
