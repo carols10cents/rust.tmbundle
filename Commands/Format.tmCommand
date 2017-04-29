@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/bin/bash
+
+cd "${TM_PROJECT_DIRECTORY:-$TM_DIRECTORY}"
+"$TM_RUSTFMT" || exit_show_tool_tip
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>name</key>
+	<string>Format</string>
+	<key>outputCaret</key>
+	<string>interpolateByLine</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>replaceDocument</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>rustfmt</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/local/bin/rustfmt</string>
+				<string>/opt/local/bin/rustfmt</string>
+				<string>$CARGO_INSTALL_ROOT/bin/rustfmt</string>
+				<string>$CARGO_HOME/bin/rustfmt</string>
+				<string>$HOME/.cargo/bin/rustfmt</string>
+			</array>
+			<key>moreInfoURL</key>
+			<string>https://github.com/rust-lang-nursery/rustfmt</string>
+			<key>variable</key>
+			<string>TM_RUSTFMT</string>
+		</dict>
+	</array>
+	<key>scope</key>
+	<string>source.rust</string>
+	<key>semanticClass</key>
+	<string>callback.document.will-save</string>
+	<key>uuid</key>
+	<string>117F0877-245C-46FF-A390-4E738C8D7E63</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
