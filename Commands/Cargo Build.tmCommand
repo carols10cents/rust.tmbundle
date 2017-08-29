@@ -3,44 +3,31 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>saveActiveFile</string>
+	<string>saveModifiedFiles</string>
 	<key>command</key>
-	<string>#!/bin/bash
-esc () {
-STR="$1" ruby18 &lt;&lt;"RUBY"
-   str = ENV['STR']
-   str = str.gsub(/'/, "'\\\\''")
-   str = str.gsub(/[\\"]/, '\\\\\\0')
-   print "'#{str}'"
-RUBY
-}
+	<string>#!/usr/bin/env ruby
 
-osascript &lt;&lt;- APPLESCRIPT
-	tell app "Terminal"
-	    launch
-	    activate
-	    do script "clear; cd $(esc "${TM_PROJECT_DIRECTORY:-$TM_DIRECTORY}")\ncargo build"
-	    set position of first window to { 100, 100 }
-	end tell
-APPLESCRIPT
+require "#{ENV['TM_BUNDLE_SUPPORT']}/lib/build.rb"
 
-</string>
+run_cargo("build", true)</string>
 	<key>input</key>
 	<string>document</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>@b</string>
+	<string>@r</string>
 	<key>name</key>
 	<string>Cargo Build</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
-	<string>text</string>
+	<string>html</string>
 	<key>outputLocation</key>
-	<string>discard</string>
+	<string>newWindow</string>
 	<key>scope</key>
 	<string>attr.project.cargo</string>
+	<key>semanticClass</key>
+	<string>process.external.run.rust</string>
 	<key>uuid</key>
 	<string>D5624A49-9460-43C7-9D05-39580911371C</string>
 	<key>version</key>

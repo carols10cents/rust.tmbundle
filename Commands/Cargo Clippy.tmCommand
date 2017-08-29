@@ -9,7 +9,7 @@
 
 require "#{ENV['TM_BUNDLE_SUPPORT']}/lib/build.rb"
 
-run_cargo("run", true)</string>
+run_cargo("clippy")</string>
 	<key>input</key>
 	<string>none</string>
 	<key>inputFormat</key>
@@ -17,7 +17,7 @@ run_cargo("run", true)</string>
 	<key>keyEquivalent</key>
 	<string>@r</string>
 	<key>name</key>
-	<string>Cargo Run</string>
+	<string>Cargo Clippy</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
@@ -26,10 +26,8 @@ run_cargo("run", true)</string>
 	<string>newWindow</string>
 	<key>scope</key>
 	<string>attr.project.cargo</string>
-	<key>semanticClass</key>
-	<string>process.external.run.rust</string>
 	<key>uuid</key>
-	<string>22D8F169-BE9C-4E06-B704-83F388340324</string>
+	<string>74F21229-92E4-415A-A633-7E3C41B74C7D</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>

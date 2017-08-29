@@ -291,7 +291,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.function.rust</string>
+					<string>entity.name.function.rust.call</string>
 				</dict>
 			</dict>
 			<key>comment</key>

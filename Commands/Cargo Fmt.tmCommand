@@ -5,11 +5,12 @@
 	<key>beforeRunningCommand</key>
 	<string>saveModifiedFiles</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby
+	<string>#!/bin/bash
 
-require "#{ENV['TM_BUNDLE_SUPPORT']}/lib/build.rb"
-
-run_cargo("run", true)</string>
+cd $TM_PROJECT_DIRECTORY
+: ${CARGO_HOME=$HOME/.cargo} &amp;&amp; export CARGO_HOME
+$CARGO_HOME/bin/cargo fmt -- --write-mode overwrite
+</string>
 	<key>input</key>
 	<string>none</string>
 	<key>inputFormat</key>
@@ -17,19 +18,19 @@ run_cargo("run", true)</string>
 	<key>keyEquivalent</key>
 	<string>@r</string>
 	<key>name</key>
-	<string>Cargo Run</string>
+	<string>Cargo Fmt</string>
 	<key>outputCaret</key>
-	<string>afterOutput</string>
+	<string>heuristic</string>
 	<key>outputFormat</key>
 	<string>html</string>
 	<key>outputLocation</key>
-	<string>newWindow</string>
+	<string>discard</string>
 	<key>scope</key>
 	<string>attr.project.cargo</string>
 	<key>semanticClass</key>
 	<string>process.external.run.rust</string>
 	<key>uuid</key>
-	<string>22D8F169-BE9C-4E06-B704-83F388340324</string>
+	<string>EE42F2F4-29B6-468E-ADA0-970D62B52F91</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>
