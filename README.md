@@ -39,20 +39,20 @@ tmb update rust
     <th>Shortcut:</th>
   </tr>
   <tr>
+    <td>Run current file</td>
+    <td>cmd + shift + r, then 1</td>
+  </tr>
+  <tr>
     <td>Build current file</td>
-    <td></td>
+    <td>cmd + shift + r, then 2</td>
   </tr>
   <tr>
     <td>Build current file with tests</td>
-    <td></td>
+    <td>cmd + shift + r, then 3</td>
   </tr>
   <tr>
-    <td>Run current file</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Run current file with tests</td>
-    <td></td>
+    <td>Run current file's tests</td>
+    <td>cmd + shift + r, then 4</td>
   </tr>
   <tr>
     <th colspan="2">
@@ -60,24 +60,28 @@ tmb update rust
     </th>
   </tr>
   <tr>
-    <td>Cargo build current project</td>
-    <td>cmd + r</td>
-  </tr>
-  <tr>
     <td>Cargo run current project</td>
-    <td>cmd + r</td>
+    <td>cmd + r, then 1</td>
   </tr>
   <tr>
-    <td>Cargo test current project</td>
-    <td>cmd + r</td>
+    <td>Cargo build current project</td>
+    <td>cmd + r, then 2</td>
   </tr>
   <tr>
     <td>Cargo check current project</td>
-    <td>cmd + r</td>
+    <td>cmd + r, then 3</td>
   </tr>
   <tr>
-    <td>Cargo format current project</td>
-    <td>cmd + r</td>
+    <td>Cargo test current project</td>
+    <td>cmd + r, then 4</td>
+  </tr>
+  <tr>
+    <td>Cargo fmt current project (if `cargo fmt` is installed)</td>
+    <td>cmd + r, then 5</td>
+  </tr>
+  <tr>
+    <td>Cargo clippy current project (if `cargo clippy` is installed)</td>
+    <td>cmd + r, then 6</td>
   </tr>
 </table>
 
