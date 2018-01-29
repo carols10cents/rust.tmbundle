@@ -59,6 +59,8 @@ def run_cargo(cmd, use_extra_args = false)
           end
         end
         show_output(io, "<a href=\"txmt://open/?url=file://#{file_ref}&line=#{$2}&column=#{$3}\">#{str}</a>")
+      elsif str =~ /error\[E(\d\d\d\d)\]/
+        show_output(io, "<a href=\"https://doc.rust-lang.org/error-index.html\#E#{$1}\" target=\"_blank\">#{str}</a>")
       else
         show_output(io, str);
       end
