@@ -297,11 +297,34 @@
 					<key>name</key>
 					<string>entity.name.function.rust.call</string>
 				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.rust</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#storage_types</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#std_types</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#types</string>
+						</dict>
+					</array>
+				</dict>
 			</dict>
 			<key>comment</key>
 			<string>Function call</string>
 			<key>match</key>
-			<string>\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(</string>
+			<string>\b([a-zA-Z_][a-zA-Z0-9_]*)(::&lt;(.*)&gt;)?\s*\(</string>
 		</dict>
 		<dict>
 			<key>begin</key>
