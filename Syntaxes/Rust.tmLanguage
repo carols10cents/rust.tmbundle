@@ -217,11 +217,15 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#types</string>
+			<string>#storage_types</string>
 		</dict>
 		<dict>
 			<key>include</key>
 			<string>#std_types</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#types</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -647,6 +651,15 @@
 			<key>name</key>
 			<string>support.class.std.rust</string>
 		</dict>
+		<key>storage_types</key>
+		<dict>
+			<key>comment</key>
+			<string>Built-in type</string>
+			<key>match</key>
+			<string>\b(bool|char|usize|isize|u8|u16|u32|u64|i8|i16|i32|i64|f32|f64|str|Self)\b</string>
+			<key>name</key>
+			<string>storage.type.rust</string>
+		</dict>
 		<key>string_literal</key>
 		<dict>
 			<key>begin</key>
@@ -684,11 +697,11 @@
 		<key>types</key>
 		<dict>
 			<key>comment</key>
-			<string>Built-in type</string>
+			<string>struct or enum name</string>
 			<key>match</key>
-			<string>\b(bool|char|usize|isize|u8|u16|u32|u64|i8|i16|i32|i64|f32|f64|str|Self)\b</string>
+			<string>\b([A-Z][A-Za-z]*)\b</string>
 			<key>name</key>
-			<string>storage.type.rust</string>
+			<string>entity.name.type.class.rust</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
