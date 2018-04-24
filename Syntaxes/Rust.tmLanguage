@@ -354,6 +354,25 @@
 			<string>\b(macro_rules!)\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\{</string>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.preprocessor.macro.rust</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.macro.rust</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Macro definition</string>
+			<key>match</key>
+			<string>\b(macro_rules!)\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\{</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>\b(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)</string>
 			<key>beginCaptures</key>
