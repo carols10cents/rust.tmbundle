@@ -743,7 +743,7 @@
 			<key>match</key>
 			<string>\b([A-Z][A-Za-z]*)\b</string>
 			<key>name</key>
-			<string>entity.name.type.class.rust</string>
+			<string>support.class.rust</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
