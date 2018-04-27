@@ -135,7 +135,7 @@
 			<key>comment</key>
 			<string>Integer number (decimal)</string>
 			<key>match</key>
-			<string>\b[0-9][0-9_]*([ui](8|16|32|64)?)?\b</string>
+			<string>\b[0-9][0-9_]*([ui](8|16|32|64|size))?\b</string>
 			<key>name</key>
 			<string>constant.numeric.integer.decimal.rust</string>
 		</dict>
@@ -143,7 +143,7 @@
 			<key>comment</key>
 			<string>Integer number (hexadecimal)</string>
 			<key>match</key>
-			<string>\b0x[a-fA-F0-9_]+([ui](8|16|32|64)?)?\b</string>
+			<string>\b0x[a-fA-F0-9_]+([ui](8|16|32|64|size))?\b</string>
 			<key>name</key>
 			<string>constant.numeric.integer.hexadecimal.rust</string>
 		</dict>
@@ -151,7 +151,7 @@
 			<key>comment</key>
 			<string>Integer number (octal)</string>
 			<key>match</key>
-			<string>\b0o[0-7_]+([ui](8|16|32|64)?)?\b</string>
+			<string>\b0o[0-7_]+([ui](8|16|32|64|size))?\b</string>
 			<key>name</key>
 			<string>constant.numeric.integer.octal.rust</string>
 		</dict>
@@ -159,7 +159,7 @@
 			<key>comment</key>
 			<string>Integer number (binary)</string>
 			<key>match</key>
-			<string>\b0b[01_]+([ui](8|16|32|64)?)?\b</string>
+			<string>\b0b[01_]+([ui](8|16|32|64|size))?\b</string>
 			<key>name</key>
 			<string>constant.numeric.integer.binary.rust</string>
 		</dict>
