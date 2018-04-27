@@ -165,6 +165,14 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>Const storage modifier</string>
+			<key>match</key>
+			<string>\bconst\b</string>
+			<key>name</key>
+			<string>storage.modifier.const.rust</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>Static storage modifier</string>
 			<key>match</key>
 			<string>\bstatic\b</string>
