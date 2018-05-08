@@ -263,7 +263,7 @@
 			<key>comment</key>
 			<string>Operator</string>
 			<key>match</key>
-			<string>(\+|-|/|\*|=|\^|&amp;|\||!|&gt;|&lt;|%|::|\bas\b)</string>
+			<string>(\+|-|/|\*|=|\^|&amp;|\||!|&gt;|&lt;|%|::|\.\.|\bas\b)</string>
 			<key>name</key>
 			<string>keyword.operator.rust</string>
 		</dict>
