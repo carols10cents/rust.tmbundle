@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>while let ${1:Some}(${2:var}) = ${3:value} {
+  ${4:$TM_SELECTED_TEXT}
+}</string>
+	<key>name</key>
+	<string>while let</string>
+	<key>scope</key>
+	<string>source.rust</string>
+	<key>tabTrigger</key>
+	<string>while let</string>
+	<key>uuid</key>
+	<string>0C6FD6A6-3C2F-402E-8454-0F8D55A6A75B</string>
+</dict>
+</plist>
