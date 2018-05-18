@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>if ${1:true} {
-  ${2:$TM_SELECTED_TEXT}
+	<string>for ${1:x} in ${2:xs} {
+  ${3:$TM_SELECTED_TEXT}
 }</string>
 	<key>name</key>
-	<string>if</string>
+	<string>for</string>
 	<key>scope</key>
 	<string>source.rust</string>
 	<key>tabTrigger</key>
-	<string>if</string>
+	<string>for</string>
 	<key>uuid</key>
-	<string>FF96E55B-A5AC-4F3F-989B-976573ADB670</string>
+	<string>EEEDD57F-75C6-4C38-B14F-04280B34546C</string>
 </dict>
 </plist>

@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>if ${1:true} {
-  ${2:$TM_SELECTED_TEXT}
+	<string>while let ${1:Some}(${2:var}) = ${3:value} {
+  ${4:$TM_SELECTED_TEXT}
 }</string>
 	<key>name</key>
-	<string>if</string>
+	<string>while let</string>
 	<key>scope</key>
 	<string>source.rust</string>
 	<key>tabTrigger</key>
-	<string>if</string>
+	<string>while let</string>
 	<key>uuid</key>
-	<string>FF96E55B-A5AC-4F3F-989B-976573ADB670</string>
+	<string>0C6FD6A6-3C2F-402E-8454-0F8D55A6A75B</string>
 </dict>
 </plist>

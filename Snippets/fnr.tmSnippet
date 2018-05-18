@@ -4,7 +4,7 @@
 <dict>
 	<key>content</key>
 	<string>fn ${1:function_name}(${2:argument}: ${3:type}) -&gt; ${4:type} {
-	${0:// body...}
+	${5:$TM_SELECTED_TEXT}
 }</string>
 	<key>name</key>
 	<string>fnr</string>

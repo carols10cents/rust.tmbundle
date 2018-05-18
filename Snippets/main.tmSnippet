@@ -4,7 +4,7 @@
 <dict>
 	<key>content</key>
 	<string>fn main() {
-	${1:println!("hello?");}
+	${1:${TM_SELECTED_TEXT:println!("Hello, world!");}}
 }</string>
 	<key>name</key>
 	<string>main</string>
