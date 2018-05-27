@@ -29,7 +29,7 @@ def cargo_params
   ENV.key?('TM_CARGO_PARAMS') ? ENV['TM_CARGO_PARAMS'].split(' ') : []
 end
 
-def run_cargo(cmd, use_extra_args = false)
+def run_cargo(cmd, use_extra_args = false, use_nightly = false)
   default_dir = 'src'
   additional_flags = []
 
@@ -66,7 +66,12 @@ def run_cargo(cmd, use_extra_args = false)
       next
     end
 
-    args = [path_to_cargo, *cargo_params, cmd, *additional_flags, "--manifest-path", cargo_toml]
+    cargo_args = cargo_params
+    if use_nightly
+      cargo_args.insert(0, "+nightly")
+    end
+
+    args = [path_to_cargo, *cargo_args, cmd, *additional_flags, "--manifest-path", cargo_toml]
 
     io.puts args.join(' ')
 

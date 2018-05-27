@@ -9,7 +9,7 @@
 
 cd $TM_PROJECT_DIRECTORY
 : ${CARGO_HOME=$HOME/.cargo} &amp;&amp; export CARGO_HOME
-$CARGO_HOME/bin/cargo fmt -- --write-mode overwrite
+$CARGO_HOME/bin/cargo +nightly fmt
 </string>
 	<key>input</key>
 	<string>none</string>
