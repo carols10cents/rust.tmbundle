@@ -30,7 +30,7 @@ def get_worspace_root(cargo_home)
   workspace_root
 end
 
-def run_cargo(cmd, use_extra_args = false)
+def run_cargo(cmd, use_extra_args = false, use_nightly = false)
   additional_flags = []
   default_dir = "src"
   current_file_name = ENV['TM_FILEPATH'] || ""
@@ -67,6 +67,9 @@ def run_cargo(cmd, use_extra_args = false)
     end
     workspace_root = get_worspace_root(cargo_home)
     errors = []
+    if use_nightly
+      cargo_params.insert(0, "+nightly")
+    end
     args = [path_to_cargo, cargo_params, cmd, additional_flags]
     show_output(io, args.join(" "))
     TextMate::Process.run(args, :env => {"PWD" => ENV['TM_PROJECT_DIRECTORY']}) do |str, type|
