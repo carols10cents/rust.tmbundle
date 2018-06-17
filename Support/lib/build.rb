@@ -48,7 +48,7 @@ def run_cargo(cmd, use_extra_args = false)
     errors = []
     args = [path_to_cargo, cargo_params, cmd, additional_flags]
     show_output(io, args.join(" "))
-    TextMate::Process.run(args, :env => {"PWD" => ENV['TM_PROJECT_DIRECTORY']}) do |str, type|
+    TextMate::Process.run(args, :chdir => ENV['TM_PROJECT_DIRECTORY']) do |str, type|
       if str =~ /--> (.*):(\d+):(\d+)/
         file_ref = Pathname.new($1)
         unless file_ref.absolute?
