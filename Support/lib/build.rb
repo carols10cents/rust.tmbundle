@@ -1,70 +1,93 @@
 require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/executor"
 require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
-require "shellwords"
-require "json"
+require 'shellwords'
+require 'json'
 require 'cgi'
 require 'pathname'
 
+def find_cargo_toml
+  candidates = [File.join(ENV['TM_PROJECT_DIRECTORY'], 'Cargo.toml')]
 
-def show_output(io, str)
-  io.puts("#{str}")
+  dir = ENV['TM_DIRECTORY']
+  while dir && dir != ENV['TM_PROJECT_DIRECTORY'] && dir != '/'
+    candidates << File.join(dir, 'Cargo.toml')
+    dir = File.dirname(dir)
+  end
+
+  candidates.find { |path| path && File.file?(path) }
+end
+
+def cargo_home
+  ENV.fetch('CARGO_HOME', File.join(ENV['HOME'], '.cargo'))
+end
+
+def cargo_name
+  ENV.fetch('TM_CARGO_NAME', 'cargo')
+end
+
+def cargo_params
+  ENV.key?('TM_CARGO_PARAMS') ? ENV['TM_CARGO_PARAMS'].split(' ') : []
 end
 
 def run_cargo(cmd, use_extra_args = false)
+  default_dir = 'src'
   additional_flags = []
-  default_dir = "src"
-  current_file_name = ENV['TM_FILEPATH'] || ""
-  current_file_name_without_extension = File.basename(current_file_name, ".rs")
-  current_file_dir = File.dirname(current_file_name)
-  current_file_dirname = File.basename(current_file_dir)
-  if current_file_dirname == "examples"
-    default_dir = "examples"
-    additional_flags = ["--example", current_file_name_without_extension] if use_extra_args
-  elsif current_file_dirname == "bin"
-    default_dir = "src/bin"
-    additional_flags = ["--bin", current_file_name_without_extension] if use_extra_args
+
+  if current_file = ENV['TM_FILEPATH']
+    case File.basename(File.dirname(current_file))
+    when 'examples'
+      default_dir = 'examples'
+      additional_flags = ['--example', File.basename(current_file, '.rs')] if use_extra_args
+    when 'bin'
+      default_dir = 'src/bin'
+      additional_flags = ['--bin', File.basename(current_file, '.rs')] if use_extra_args
+    else
+    end
   end
 
   TextMate.save_if_untitled('rs')
   TextMate::Executor.make_project_master_current_document
-  TextMate::HTMLOutput.show(:title => "Cargo Build", :sub_title => "Results") do |io|
-    show_output(io, "<pre>")
-    cd_args = ["cd", ENV['TM_PROJECT_DIRECTORY']]
-    show_output(io, cd_args.join(" "))
-    TextMate::Process.run(cd_args)
-    cargo_home = ENV['CARGO_HOME']
-    cargo_name = ENV['TM_CARGO_NAME'] || "cargo"
-    cargo_params = (ENV['TM_CARGO_PARAMS'] || "").split(" ")
-    unless cargo_home
-      cargo_home = File.join(ENV['HOME'], ".cargo")
-    end
-    path_to_cargo = File.join(cargo_home, "bin", cargo_name)
+  TextMate::HTMLOutput.show(:title => "Cargo #{cmd.capitalize}") do |io|
+    io.puts '<pre>'
+
+    path_to_cargo = File.join(cargo_home, 'bin', cargo_name)
+
     unless File.exist? path_to_cargo
-      show_output(io, "Error: Cannot find cargo at #{path_to_cargo}. Check that cargo is \
+      io.puts "Error: Cannot find cargo at #{path_to_cargo}. Check that cargo is \
   installed and that the CARGO_HOME environmental variable is either unset or points \
-  to the right location.")
+  to the right location."
       next
     end
-    errors = []
-    args = [path_to_cargo, cargo_params, cmd, additional_flags]
-    show_output(io, args.join(" "))
-    TextMate::Process.run(args, :chdir => ENV['TM_PROJECT_DIRECTORY']) do |str, type|
+
+    cargo_toml = find_cargo_toml
+
+    if cargo_toml.nil?
+      io.puts "No Cargo.toml found."
+      next
+    end
+
+    args = [path_to_cargo, *cargo_params, cmd, *additional_flags, "--manifest-path", cargo_toml]
+
+    io.puts args.join(' ')
+
+    TextMate::Process.run(args, :chdir => File.dirname(cargo_toml)) do |str, type|
       if str =~ /--> (.*):(\d+):(\d+)/
         file_ref = Pathname.new($1)
         unless file_ref.absolute?
-          if file_ref.dirname == Pathname.new(".")
-            file_ref = File.join(ENV['TM_PROJECT_DIRECTORY'], default_dir, file_ref)
+          if file_ref.dirname == Pathname.new('.')
+            file_ref = File.join(File.dirname(cargo_toml), default_dir, file_ref)
           else
-            file_ref = File.join(ENV['TM_PROJECT_DIRECTORY'], file_ref)
+            file_ref = File.join(File.dirname(cargo_toml), file_ref)
           end
         end
-        show_output(io, "<a href=\"txmt://open/?url=file://#{file_ref}&line=#{$2}&column=#{$3}\">#{str}</a>")
-      elsif str =~ /error\[E(\d\d\d\d)\]/
-        show_output(io, "<a href=\"https://doc.rust-lang.org/error-index.html\#E#{$1}\" target=\"_blank\">#{str}</a>")
+        io.puts "<a href=\"txmt://open/?url=file://#{file_ref}&line=#{$2}&column=#{$3}\">#{str}</a>"
+      elsif str =~ /error\[(E\d\d\d\d)\]/
+        io.puts "<a href=\"https://doc.rust-lang.org/error-index.html\##{$1}\" target=\"_blank\">#{str}</a>"
       else
-        show_output(io, str);
+        io.puts str
       end
     end
-    show_output(io, "</pre>")
+
+    io.puts '</pre>'
   end
 end
