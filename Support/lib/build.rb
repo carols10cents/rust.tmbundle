@@ -33,7 +33,7 @@ end
 # root for resolving relative paths in error messages.
 # Fall back to TM_PROJECT_DIRECTORY if that attempt
 # fails for any reason.
-def get_worspace_root(cargo_home)
+def get_workspace_root(cargo_home)
   workspace_root = nil
   begin
     path_to_cargo = File.join(cargo_home, "bin", "cargo")
@@ -79,7 +79,7 @@ def run_cargo(cmd, use_extra_args = false)
       next
     end
 
-    workspace_root = get_worspace_root(cargo_home)
+    workspace_root = get_workspace_root(cargo_home)
 
     cargo_toml = find_cargo_toml
 
