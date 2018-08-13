@@ -29,6 +29,26 @@ def cargo_params
   ENV.key?('TM_CARGO_PARAMS') ? ENV['TM_CARGO_PARAMS'].split(' ') : []
 end
 
+# Try to use cargo metadata to find the workspace
+# root for resolving relative paths in error messages.
+# Fall back to TM_PROJECT_DIRECTORY if that attempt
+# fails for any reason.
+def get_workspace_root(cargo_home)
+  workspace_root = nil
+  begin
+    path_to_cargo = File.join(cargo_home, "bin", "cargo")
+    metadata_json = nil
+    IO.popen([path_to_cargo, "metadata", "--no-deps", "--format-version", "1", :err=>[:child, :out]]) {|ls_io|
+      metadata_json = ls_io.read
+    }
+    metadata = JSON.parse(metadata_json)
+    workspace_root = metadata["workspace_root"]
+  rescue
+    workspace_root = ENV['TM_PROJECT_DIRECTORY']
+  end
+  workspace_root
+end
+
 def run_cargo(cmd, use_extra_args = false, use_nightly = false)
   default_dir = 'src'
   additional_flags = []
@@ -59,6 +79,8 @@ def run_cargo(cmd, use_extra_args = false, use_nightly = false)
       next
     end
 
+    workspace_root = get_workspace_root(cargo_home)
+
     cargo_toml = find_cargo_toml
 
     if cargo_toml.nil?
@@ -80,9 +102,9 @@ def run_cargo(cmd, use_extra_args = false, use_nightly = false)
         file_ref = Pathname.new($1)
         unless file_ref.absolute?
           if file_ref.dirname == Pathname.new('.')
-            file_ref = File.join(File.dirname(cargo_toml), default_dir, file_ref)
+            file_ref = File.join(workspace_root, default_dir, file_ref)
           else
-            file_ref = File.join(File.dirname(cargo_toml), file_ref)
+            file_ref = File.join(workspace_root, file_ref)
           end
         end
         io.puts "<a href=\"txmt://open/?url=file://#{file_ref}&line=#{$2}&column=#{$3}\">#{str}</a>"
