@@ -706,7 +706,7 @@
 			<key>comment</key>
 			<string>Built-in type</string>
 			<key>match</key>
-			<string>\b(bool|char|usize|isize|u8|u16|u32|u64|i8|i16|i32|i64|f32|f64|str|Self)\b</string>
+			<string>\b(bool|char|usize|isize|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|f32|f64|str|Self)\b</string>
 			<key>name</key>
 			<string>storage.type.rust</string>
 		</dict>
