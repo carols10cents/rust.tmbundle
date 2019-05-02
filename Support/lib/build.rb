@@ -38,7 +38,7 @@ def get_workspace_root(cargo_home)
   begin
     path_to_cargo = File.join(cargo_home, "bin", "cargo")
     metadata_json = nil
-    IO.popen([path_to_cargo, "metadata", "--no-deps", "--format-version", "1", :err=>[:child, :out]]) {|ls_io|
+    IO.popen([path_to_cargo, "metadata", "--no-deps", "--format-version", "1", :err => [:child, :out]]) { |ls_io|
       metadata_json = ls_io.read
     }
     metadata = JSON.parse(metadata_json)
@@ -97,6 +97,8 @@ def run_cargo(cmd, use_extra_args = false, use_nightly = false)
 
     io.puts args.join(' ')
 
+    patch_warning_emitted = false
+
     TextMate::Process.run(args, :chdir => File.dirname(cargo_toml)) do |str, type|
       if str =~ /--> (.*):(\d+):(\d+)/
         file_ref = Pathname.new($1)
@@ -110,6 +112,11 @@ def run_cargo(cmd, use_extra_args = false, use_nightly = false)
         io.puts "<a href=\"txmt://open/?url=file://#{file_ref}&line=#{$2}&column=#{$3}\">#{str}</a>"
       elsif str =~ /error\[(E\d\d\d\d)\]/
         io.puts "<a href=\"https://doc.rust-lang.org/error-index.html\##{$1}\" target=\"_blank\">#{str}</a>"
+      elsif str =~ /was not used in the crate graph/
+        unless patch_warning_emitted
+          io.puts "[Individual patch warnings suppressed]"
+          patch_warning_emitted = true
+        end
       else
         io.puts str
       end
