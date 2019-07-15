@@ -51,8 +51,6 @@
 					<string>punctuation.definition.attribute.begin.rust</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Attribute</string>
 			<key>end</key>
 			<string>\]</string>
 			<key>endCaptures</key>
@@ -92,8 +90,6 @@
 					<string>punctuation.definition.string.end.rust</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Single-quote string (character literal)</string>
 			<key>match</key>
 			<string>(')([^'\\]|(\\(x\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)))(')</string>
 			<key>name</key>
@@ -108,164 +104,160 @@
 			<string>#raw_string</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Floating point number (fraction)</string>
 			<key>match</key>
 			<string>\b[0-9][0-9_]*\.[0-9][0-9_]*([eE][+-][0-9_]+)?(f32|f64)?\b</string>
 			<key>name</key>
 			<string>constant.numeric.float.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Floating point number (exponent)</string>
 			<key>match</key>
 			<string>\b[0-9][0-9_]*(\.[0-9][0-9_]*)?[eE][+-][0-9_]+(f32|f64)?\b</string>
 			<key>name</key>
 			<string>constant.numeric.float.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Floating point number (typed)</string>
 			<key>match</key>
 			<string>\b[0-9][0-9_]*(\.[0-9][0-9_]*)?([eE][+-][0-9_]+)?(f32|f64)\b</string>
 			<key>name</key>
 			<string>constant.numeric.float.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Integer number (decimal)</string>
 			<key>match</key>
 			<string>\b[0-9][0-9_]*([ui](8|16|32|64|128|size))?\b</string>
 			<key>name</key>
 			<string>constant.numeric.integer.decimal.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Integer number (hexadecimal)</string>
 			<key>match</key>
 			<string>\b0x[a-fA-F0-9_]+([ui](8|16|32|64|128|size))?\b</string>
 			<key>name</key>
 			<string>constant.numeric.integer.hexadecimal.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Integer number (octal)</string>
 			<key>match</key>
 			<string>\b0o[0-7_]+([ui](8|16|32|64|128|size))?\b</string>
 			<key>name</key>
 			<string>constant.numeric.integer.octal.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Integer number (binary)</string>
 			<key>match</key>
 			<string>\b0b[01_]+([ui](8|16|32|64|128|size))?\b</string>
 			<key>name</key>
 			<string>constant.numeric.integer.binary.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Const storage modifier</string>
 			<key>match</key>
 			<string>\bconst\b</string>
 			<key>name</key>
 			<string>storage.modifier.const.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Static storage modifier</string>
 			<key>match</key>
 			<string>\bstatic\b</string>
 			<key>name</key>
 			<string>storage.modifier.static.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Visibility modifier</string>
 			<key>match</key>
 			<string>\b(priv|pub)\b</string>
 			<key>name</key>
 			<string>storage.modifier.visibility.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Boolean constant</string>
 			<key>match</key>
 			<string>\b(true|false)\b</string>
 			<key>name</key>
 			<string>constant.language.boolean.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Control keyword</string>
 			<key>match</key>
 			<string>\b(break|continue|do|else|if|in|for|loop|match|return|while)\b</string>
 			<key>name</key>
 			<string>keyword.control.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Keyword</string>
-			<key>match</key>
-			<string>\b(crate|extern|mod|let|proc|ref|use)\b</string>
-			<key>name</key>
-			<string>keyword.other.rust</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>async Keyword</string>
 			<key>match</key>
 			<string>\basync\b</string>
 			<key>name</key>
 			<string>keyword.other.async.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>await Keyword</string>
 			<key>match</key>
 			<string>\bawait\b</string>
 			<key>name</key>
 			<string>keyword.other.await.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>dyn Keyword</string>
+			<key>match</key>
+			<string>\bcrate\b</string>
+			<key>name</key>
+			<string>keyword.other.crate.rust</string>
+		</dict>
+		<dict>
 			<key>match</key>
 			<string>\bdyn\b</string>
 			<key>name</key>
 			<string>keyword.other.dyn.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>move Keyword</string>
+			<key>match</key>
+			<string>\bextern\b</string>
+			<key>name</key>
+			<string>keyword.other.extern.rust</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\blet\b</string>
+			<key>name</key>
+			<string>keyword.other.let.rust</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bmod\b</string>
+			<key>name</key>
+			<string>keyword.other.mod.rust</string>
+		</dict>
+		<dict>
 			<key>match</key>
 			<string>\bmove\b</string>
 			<key>name</key>
 			<string>keyword.other.move.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>super Keyword</string>
+			<key>match</key>
+			<string>\bproc\b</string>
+			<key>name</key>
+			<string>keyword.other.proc.rust</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bref\b</string>
+			<key>name</key>
+			<string>keyword.other.ref.rust</string>
+		</dict>
+		<dict>
 			<key>match</key>
 			<string>\bsuper\b</string>
 			<key>name</key>
 			<string>keyword.other.super.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>type Keyword</string>
 			<key>match</key>
 			<string>\btype\b</string>
 			<key>name</key>
 			<string>keyword.other.type.rust</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Unsafe code keyword</string>
 			<key>match</key>
 			<string>\bunsafe\b</string>
 			<key>name</key>
 			<string>keyword.other.unsafe.rust</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\buse\b</string>
+			<key>name</key>
+			<string>keyword.other.use.rust</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -308,8 +300,6 @@
 			<string>#ref_lifetime</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Operator</string>
 			<key>match</key>
 			<string>(\+|-|/|\*|=|\^|&amp;|\||!|&gt;|&lt;|%|::|\.\.|\bas\b)</string>
 			<key>name</key>
@@ -526,8 +516,6 @@
 					<string>punctuation.definition.comment.begin.rust</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Block comment</string>
 			<key>end</key>
 			<string>\*/</string>
 			<key>endCaptures</key>
@@ -564,8 +552,6 @@
 					<string>punctuation.definition.comment.begin.rust</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Block documentation comment</string>
 			<key>end</key>
 			<string>\*/</string>
 			<key>endCaptures</key>
@@ -592,8 +578,6 @@
 		</dict>
 		<key>box</key>
 		<dict>
-			<key>comment</key>
-			<string>Box storage modifier</string>
 			<key>match</key>
 			<string>\bbox\b</string>
 			<key>name</key>
@@ -724,12 +708,10 @@
 		</dict>
 		<key>self</key>
 		<dict>
-			<key>comment</key>
-			<string>Self variable</string>
 			<key>match</key>
 			<string>\bself\b</string>
 			<key>name</key>
-			<string>variable.language.rust</string>
+			<string>variable.language.self.rust</string>
 		</dict>
 		<key>sigils</key>
 		<dict>
