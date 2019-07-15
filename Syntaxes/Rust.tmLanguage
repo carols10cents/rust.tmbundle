@@ -749,7 +749,7 @@
 			<key>comment</key>
 			<string>struct or enum name</string>
 			<key>match</key>
-			<string>\b([A-Z][A-Za-z]*)\b</string>
+			<string>\b([A-Z][a-z]*([A-Z][a-z]*|[0-9])*)\b</string>
 			<key>name</key>
 			<string>support.class.rust</string>
 		</dict>
