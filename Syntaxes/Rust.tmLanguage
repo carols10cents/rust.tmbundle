@@ -213,6 +213,14 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>dyn Keyword</string>
+			<key>match</key>
+			<string>\bdyn\b</string>
+			<key>name</key>
+			<string>keyword.other.dyn.rust</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>Unsafe code keyword</string>
 			<key>match</key>
 			<string>\bunsafe\b</string>
