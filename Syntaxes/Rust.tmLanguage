@@ -245,6 +245,14 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>super Keyword</string>
+			<key>match</key>
+			<string>\bsuper\b</string>
+			<key>name</key>
+			<string>keyword.other.super.rust</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>type Keyword</string>
 			<key>match</key>
 			<string>\btype\b</string>
