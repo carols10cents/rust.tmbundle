@@ -213,11 +213,35 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>async Keyword</string>
+			<key>match</key>
+			<string>\basync\b</string>
+			<key>name</key>
+			<string>keyword.other.async.rust</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>await Keyword</string>
+			<key>match</key>
+			<string>\bawait\b</string>
+			<key>name</key>
+			<string>keyword.other.await.rust</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>dyn Keyword</string>
 			<key>match</key>
 			<string>\bdyn\b</string>
 			<key>name</key>
 			<string>keyword.other.dyn.rust</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>move Keyword</string>
+			<key>match</key>
+			<string>\bmove\b</string>
+			<key>name</key>
+			<string>keyword.other.move.rust</string>
 		</dict>
 		<dict>
 			<key>comment</key>
