@@ -678,7 +678,7 @@
 		<key>raw_string</key>
 		<dict>
 			<key>begin</key>
-			<string>r#"</string>
+			<string>r(#+)"</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -690,7 +690,7 @@
 			<key>comment</key>
 			<string>Raw string</string>
 			<key>end</key>
-			<string>"#</string>
+			<string>"\1</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
