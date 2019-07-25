@@ -67,41 +67,13 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#string_literal</string>
+					<string>#string_like_literals</string>
 				</dict>
 			</array>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.rust</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>constant.character.escape.rust</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.rust</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(')([^'\\]|(\\(x\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)))(')</string>
-			<key>name</key>
-			<string>string.quoted.single.rust</string>
-		</dict>
-		<dict>
 			<key>include</key>
-			<string>#string_literal</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#raw_string</string>
+			<string>#string_like_literals</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -583,10 +555,39 @@
 			<key>name</key>
 			<string>storage.modifier.box.rust</string>
 		</dict>
-		<key>escaped_character</key>
+		<key>escaped_ascii_character</key>
 		<dict>
+			<key>comment</key>
+			<string>https://doc.rust-lang.org/reference/tokens.html ASCII_ESCAPE</string>
 			<key>match</key>
-			<string>\\(x\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)</string>
+			<string>\\(x[0-7]\h|n|r|t|\\|0)</string>
+			<key>name</key>
+			<string>constant.character.escape.rust</string>
+		</dict>
+		<key>escaped_byte</key>
+		<dict>
+			<key>comment</key>
+			<string>https://doc.rust-lang.org/reference/tokens.html BYTE_ESCAPE</string>
+			<key>match</key>
+			<string>\\(x\h{2}|n|r|t|\\|0)</string>
+			<key>name</key>
+			<string>constant.character..escape.rust</string>
+		</dict>
+		<key>escaped_quote</key>
+		<dict>
+			<key>comment</key>
+			<string>https://doc.rust-lang.org/reference/tokens.html QUOTE_ESCAPE</string>
+			<key>match</key>
+			<string>\\('|")</string>
+			<key>name</key>
+			<string>constant.character.escape.rust</string>
+		</dict>
+		<key>escaped_unicode_character</key>
+		<dict>
+			<key>comment</key>
+			<string>https://doc.rust-lang.org/reference/tokens.html UNICODE_ESCAPE</string>
+			<key>match</key>
+			<string>\\u\{(?:0?(?:\h_*){1,5}|1_*0_*(?:\h_*){4})\}</string>
 			<key>name</key>
 			<string>constant.character.escape.rust</string>
 		</dict>
@@ -612,7 +613,7 @@
 			<key>comment</key>
 			<string>Named lifetime</string>
 			<key>match</key>
-			<string>'([a-zA-Z_][a-zA-Z0-9_]*)\b</string>
+			<string>'([a-zA-Z_][a-zA-Z0-9_]*)\b[^']</string>
 			<key>name</key>
 			<string>storage.modifier.lifetime.rust</string>
 		</dict>
@@ -650,19 +651,37 @@
 			<key>name</key>
 			<string>comment.line.documentation.rust</string>
 		</dict>
-		<key>mut</key>
+		<key>literal_byte</key>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.rust</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>constant.character.escape.rust</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.rust</string>
+				</dict>
+			</dict>
 			<key>comment</key>
-			<string>Mutable storage modifier</string>
+			<string>https://doc.rust-lang.org/reference/tokens.html#byte-literals BYTE_LITERAL</string>
 			<key>match</key>
-			<string>\bmut\b</string>
+			<string>(b')(\\(?:'|"|x\h{2}|n|r|t|\\|0))(')</string>
 			<key>name</key>
-			<string>storage.modifier.mut.rust</string>
+			<string>string.quoted.single.byte.rust</string>
 		</dict>
-		<key>raw_string</key>
+		<key>literal_byte_string</key>
 		<dict>
 			<key>begin</key>
-			<string>r(#+)"</string>
+			<string>b"</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -672,7 +691,72 @@
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>Raw string</string>
+			<string>https://doc.rust-lang.org/reference/tokens.html#byte-literals BYTE_LITERAL</string>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.rust</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.byte.rust</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#escaped_quote</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_byte</string>
+				</dict>
+			</array>
+		</dict>
+		<key>literal_character</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.rust</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>constant.character.escape.rust</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.rust</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>https://doc.rust-lang.org/reference/tokens.html#character-literals CHAR_LITERAL</string>
+			<key>match</key>
+			<string>(')(?:(\\(?:'|"|x[0-7]\h|n|r|t|\\|0|u\{(?:0?(?:\h_*){1,5}|1_*0_*(?:\h_*){4})\}))|[^'"\n\r\t\\\0])(')</string>
+			<key>name</key>
+			<string>string.quoted.single.rust</string>
+		</dict>
+		<key>literal_raw_byte_string</key>
+		<dict>
+			<key>begin</key>
+			<string>br(#*)"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.rust</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>https://doc.rust-lang.org/reference/tokens.html#raw-byte-string-literals RAW_BYTE_STRING_LITERAL</string>
 			<key>end</key>
 			<string>"\1</string>
 			<key>endCaptures</key>
@@ -684,7 +768,85 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.quoted.other.raw.rust</string>
+			<string>string.quoted.double.byte.raw.rust</string>
+		</dict>
+		<key>literal_raw_string</key>
+		<dict>
+			<key>begin</key>
+			<string>r(#*)"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.rust</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>https://doc.rust-lang.org/reference/tokens.html#raw-string-literals RAW_STRING_LITERAL</string>
+			<key>end</key>
+			<string>"\1</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.rust</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.raw.rust</string>
+		</dict>
+		<key>literal_string</key>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.rust</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>https://doc.rust-lang.org/reference/tokens.html#string-literals STRING_LITERAL</string>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.rust</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.rust</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#escaped_quote</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_ascii_character</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_unicode_character</string>
+				</dict>
+			</array>
+		</dict>
+		<key>mut</key>
+		<dict>
+			<key>comment</key>
+			<string>Mutable storage modifier</string>
+			<key>match</key>
+			<string>\bmut\b</string>
+			<key>name</key>
+			<string>storage.modifier.mut.rust</string>
 		</dict>
 		<key>ref_lifetime</key>
 		<dict>
@@ -740,37 +902,33 @@
 			<key>name</key>
 			<string>storage.type.rust</string>
 		</dict>
-		<key>string_literal</key>
+		<key>string_like_literals</key>
 		<dict>
-			<key>begin</key>
-			<string>"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.rust</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Double-quote string</string>
-			<key>end</key>
-			<string>"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.rust</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.double.rust</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#escaped_character</string>
+					<string>#literal_character</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#literal_string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#literal_raw_string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#literal_byte</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#literal_byte_string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#literal_raw_byte_string</string>
 				</dict>
 			</array>
 		</dict>
