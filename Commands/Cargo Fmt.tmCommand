@@ -5,12 +5,11 @@
 	<key>beforeRunningCommand</key>
 	<string>saveModifiedFiles</string>
 	<key>command</key>
-	<string>#!/bin/bash
+	<string>#!/usr/bin/env ruby20
 
-cd $TM_PROJECT_DIRECTORY
-: ${CARGO_HOME=$HOME/.cargo} &amp;&amp; export CARGO_HOME
-$CARGO_HOME/bin/cargo +nightly fmt
-</string>
+require "#{ENV['TM_BUNDLE_SUPPORT']}/lib/build.rb"
+
+run_cargo("fmt", false)</string>
 	<key>input</key>
 	<string>none</string>
 	<key>inputFormat</key>
