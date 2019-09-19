@@ -9,7 +9,7 @@
 
 require "#{ENV['TM_BUNDLE_SUPPORT']}/lib/build.rb"
 
-run_cargo("fmt", false)</string>
+run_cargo_fmt()</string>
 	<key>input</key>
 	<string>none</string>
 	<key>inputFormat</key>
@@ -21,7 +21,7 @@ run_cargo("fmt", false)</string>
 	<key>outputCaret</key>
 	<string>heuristic</string>
 	<key>outputFormat</key>
-	<string>html</string>
+	<string>text</string>
 	<key>outputLocation</key>
 	<string>discard</string>
 	<key>scope</key>

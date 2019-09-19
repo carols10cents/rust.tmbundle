@@ -125,3 +125,27 @@ def run_cargo(cmd, use_extra_args = false, use_nightly = false)
     io.puts '</pre>'
   end
 end
+
+def run_cargo_fmt()
+  path_to_cargo = File.join(cargo_home, 'bin', cargo_name)
+
+  unless File.exist? path_to_cargo
+    puts "Error: Cannot find cargo at #{path_to_cargo}. Check that cargo is \
+installed and that the CARGO_HOME environmental variable is either unset or points \
+to the right location."
+    exit 1
+  end
+
+  workspace_root = get_workspace_root(cargo_home)
+
+  cargo_toml = find_cargo_toml
+
+  if cargo_toml.nil?
+    puts "No Cargo.toml found."
+    exit 1
+  end
+
+  Dir.chdir(workspace_root) do
+    system(path_to_cargo, "fmt")
+  end
+end
