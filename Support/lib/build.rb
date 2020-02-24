@@ -62,6 +62,9 @@ def run_cargo(cmd, use_extra_args = false, use_nightly = false)
       default_dir = 'src/bin'
       additional_flags = ['--bin', File.basename(current_file, '.rs')] if use_extra_args
     else
+      if cmd == "test"
+        additional_flags = ["#{File.basename(current_file, '.rs')}::tests"] if use_extra_args
+      end
     end
   end
 
