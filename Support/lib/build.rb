@@ -32,8 +32,8 @@ end
 def get_cargo_bin
   paths_to_cargo = [
     ENV['TM_CARGO'].to_s,
-    File.join(cargo_home, 'bin', 'cargo'),
-    `which cargo`.chomp
+    File.join(cargo_home, 'bin', cargo_name),
+    `which #{cargo_name}`.chomp
   ].reject(&:empty?)
 
   path_to_cargo = paths_to_cargo.find {|path| File.exists?(path) }
