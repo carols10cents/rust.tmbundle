@@ -29,14 +29,42 @@ def cargo_params
   ENV.key?('TM_CARGO_PARAMS') ? ENV['TM_CARGO_PARAMS'].split(' ') : []
 end
 
+def get_cargo_bin
+  paths_to_cargo = [
+    ENV['TM_CARGO'].to_s,
+    File.join(cargo_home, 'bin', 'cargo'),
+    `which cargo`.chomp
+  ].reject(&:empty?)
+
+  path_to_cargo = paths_to_cargo.find {|path| File.exists?(path) }
+
+  if path_to_cargo.nil?
+    paths_to_sentence =
+      case paths_to_cargo.size
+      when 0
+        ""
+      when 1
+        paths_to_cargo[0]
+      else
+        paths_to_cargo[0..-2].join(", ") + " or " + paths_to_cargo[-1]
+      end
+      1
+    puts "Error: Cannot find cargo at #{paths_to_sentence}. Check that cargo is \
+    installed and in your PATH or that TM_CARGO points to the right location or that \
+    CARGO_HOME is set and points to the right location."
+    exit
+  end
+
+  path_to_cargo
+end
+
 # Try to use cargo metadata to find the workspace
 # root for resolving relative paths in error messages.
 # Fall back to TM_PROJECT_DIRECTORY if that attempt
 # fails for any reason.
-def get_workspace_root(cargo_home)
+def get_workspace_root(path_to_cargo, cargo_home)
   workspace_root = nil
   begin
-    path_to_cargo = File.join(cargo_home, "bin", "cargo")
     metadata_json = nil
     IO.popen([path_to_cargo, "metadata", "--no-deps", "--format-version", "1", :err => [:child, :out]]) { |ls_io|
       metadata_json = ls_io.read
@@ -52,6 +80,7 @@ end
 def run_cargo(cmd, use_extra_args = false, use_nightly = false)
   default_dir = 'src'
   additional_flags = []
+  path_to_cargo = get_cargo_bin
 
   if current_file = ENV['TM_FILEPATH']
     case File.basename(File.dirname(current_file))
@@ -70,16 +99,7 @@ def run_cargo(cmd, use_extra_args = false, use_nightly = false)
   TextMate::HTMLOutput.show(:title => "Cargo #{cmd.capitalize}") do |io|
     io.puts '<pre>'
 
-    path_to_cargo = File.join(cargo_home, 'bin', cargo_name)
-
-    unless File.exist? path_to_cargo
-      io.puts "Error: Cannot find cargo at #{path_to_cargo}. Check that cargo is \
-  installed and that the CARGO_HOME environmental variable is either unset or points \
-  to the right location."
-      next
-    end
-
-    workspace_root = get_workspace_root(cargo_home)
+    workspace_root = get_workspace_root(path_to_cargo, cargo_home)
 
     cargo_toml = find_cargo_toml
 
@@ -127,16 +147,8 @@ def run_cargo(cmd, use_extra_args = false, use_nightly = false)
 end
 
 def run_cargo_fmt()
-  path_to_cargo = File.join(cargo_home, 'bin', cargo_name)
-
-  unless File.exist? path_to_cargo
-    puts "Error: Cannot find cargo at #{path_to_cargo}. Check that cargo is \
-installed and that the CARGO_HOME environmental variable is either unset or points \
-to the right location."
-    exit 1
-  end
-
-  workspace_root = get_workspace_root(cargo_home)
+  path_to_cargo = get_cargo_bin
+  workspace_root = get_workspace_root(path_to_cargo, cargo_home)
 
   cargo_toml = find_cargo_toml
 
